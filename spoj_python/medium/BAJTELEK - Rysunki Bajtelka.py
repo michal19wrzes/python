@@ -11,20 +11,30 @@ def pole(lista):
     for f in range(len(xs)):
         if f != len(xs)-1:
             suma += (float(xs[f+1])+float(xs[f]))*(float(ys[f+1])-float(ys[f]))   
-    return suma/2
+    return abs(suma)/2
     
     
 t = int(input())
 wyniki=[]
 for test in range(t):
-    black = input().split()
-    gray = input().split()
-    b = pole(black)
-    black_value = b*10
-    g = pole(gray)
-    gray_value = (g-b)*6
-    wyniki.append(int(black_value+gray_value))
-    print()
+    first = input().split()
+    second = input().split()
+    if len(first) > len(second):
+        g = pole(first)
+        b = pole(second)    
+        black_value = b*10
+        gray_value = (g-b)*6       
+        wyniki.append(int(black_value+gray_value))
+        print()
+        
+    else:
+        b = pole(first)
+        g = pole(second)
+        black_value = b*10
+        gray_value = (g-b)*6
+        wyniki.append(int(black_value+gray_value))
+        print()
+     
 for wynik in wyniki:
     print(wynik)
     
