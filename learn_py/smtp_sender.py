@@ -5,8 +5,8 @@ EMAIL_PASS = os.environ.get('EMAIL_PASS')           # pass to google account (co
 
 
 with smtplib.SMTP('smtp.gmail.com',587) as smtp:
-    smtp.ehlo()                                     #identyfikacja
-    smtp.starttls()                                 #szyfrowanie
+    smtp.ehlo()                                     #identification
+    smtp.starttls()                                 #ciphering
     smtp.ehlo()
     
     smtp.login(EMAIL_ADDRESS,EMAIL_PASS)
