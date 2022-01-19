@@ -21,15 +21,18 @@ def showQButton() :
   txt.insert('2.0',f) #na początek
 def addQButton():
 #action after click 'add question' button
-    query="INSERT INTO question SET data ='{}', answer='{}'".format(questionEntry.get(),answerEntry.get())
+    query="INSERT INTO question(data,answer) VALUES ('{}','{}')".format(questionEntry.get(),answerEntry.get())
     cursor = mydb.cursor()
     cursor.execute(query)
+    mydb.commit()
+    
 def delQButton():
 #action after click 'delete button' --> for answer
     query="DELETE FROM question WHERE answer='{}'".format(answerEntry.get())
     cursor = mydb.cursor()
     cursor.execute(query)
 def clearOutput():
+#delete data from output in textfield
     txt.delete('1.0',END)
  
 
