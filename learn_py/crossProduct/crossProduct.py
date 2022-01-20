@@ -11,12 +11,12 @@ root.resizable(width=False, height=True)
 # FUNKCJE OBSŁUGI OKNA
 def showQButton() :
 #action after click 'show question' button
-  query="SELECT data,answer FROM question"
+  query="SELECT question_id,data,answer FROM question"
   f = ""
   cursor = mydb.cursor()
   cursor.execute(query)
-  for (id,name) in cursor:
-    f = f + "{} = {}\n".format(id,name);  
+  for (question_id,id,name) in cursor:
+    f = f + "{} {} = {}\n".format(question_id,id,name);  
   cursor.close()  
   txt.insert('2.0',f) #na początek
 def addQButton():
@@ -31,6 +31,7 @@ def delQButton():
     query="DELETE FROM question WHERE answer='{}'".format(answerEntry.get())
     cursor = mydb.cursor()
     cursor.execute(query)
+    mydb.commit()
 def clearOutput():
 #delete data from output in textfield
     txt.delete('1.0',END)
