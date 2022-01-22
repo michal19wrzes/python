@@ -128,73 +128,73 @@ frame.grid(row=0, column=1 )
 frame.config(background='black')
 
 taskEntry = Entry(frame, width=40) 
-taskEntry.grid(sticky=W,row=2,column=1,padx=5, pady=5) 
+taskEntry.grid(sticky=N,row=2,column=0,padx=5, pady=5) 
 taskLabel = Label(frame,text='Wprowadź zadanie:') 
-taskLabel.grid(sticky=E, row=1, column=1, padx=5, pady=5)
+taskLabel.grid(sticky=N, row=1, column=0, padx=5, pady=5)
 
 priorityEntry = Entry(frame, width=40)   
-priorityEntry.grid(sticky=E,row=4,column=1,padx=5, pady=5)
+priorityEntry.grid(sticky=N,row=2,column=1,padx=5, pady=5)
 priorityLabel = Label(frame,text='Wprowadź priorytet (1-100):') 
-priorityLabel.grid(sticky=E, row=3, column=1, padx=5, pady=5)
+priorityLabel.grid(sticky=N, row=1, column=1, padx=5, pady=5)
 
 statusEntry = Entry(frame, width=40)   
-statusEntry.grid(sticky=E,row=6,column=1,padx=5, pady=5)
+statusEntry.grid(sticky=N,row=2,column=2,padx=5, pady=5)
 statusLabel = Label(frame,text='Wprowadź status (1-ON | 0-OFF):') 
-statusLabel.grid(sticky=E, row=5, column=1, padx=5, pady=5) 
+statusLabel.grid(sticky=N, row=1, column=2, padx=5, pady=5) 
 
 idTaskEntry = Entry(frame, width=40)   
-idTaskEntry.grid(sticky=E,row=8,column=1,padx=5, pady=5)
+idTaskEntry.grid(sticky=N,row=2,column=3,padx=5, pady=5)
 idTaskLabel = Label(frame,text='Wprowadź ID zadania:') 
-idTaskLabel.grid(sticky=E, row=7, column=1, padx=5, pady=5) 
+idTaskLabel.grid(sticky=N, row=1, column=3, padx=5, pady=5) 
 
 #BUTTONS
 #show tasks button
 showQButton = Button(frame,text='Pokaż pytania', command=showQButton)
-showQButton.grid(row=4,column=2)
+showQButton.grid(row=3,column=0)
 showQButton.config(background='green', foreground='#FFFF00')
 #show ON
 showQOnButton = Button(frame,text='Pokaż włączone', command=showQOnButton)
-showQOnButton.grid(row=5,column=2)
+showQOnButton.grid(row=3,column=1)
 showQOnButton.config(background='green', foreground='#FFFF00')
 #show OFF
 showQOffButton = Button(frame,text='Pokaż wyłączone', command=showQOffButton)
-showQOffButton.grid(row=7,column=2)
+showQOffButton.grid(row=3,column=2)
 showQOffButton.config(background='green', foreground='#FFFF00')
 #add task button
 addQButton = Button(frame,text='Dodaj zadanie', command=addQButton)
-addQButton.grid(row=3,column=2)
+addQButton.grid(row=4,column=0)
 addQButton.config(background='blue', foreground='#FFFF00')
 #delete task by id button
 delQButton = Button(frame,text='Usuń zadanie po ID', command=delQButton)
-delQButton.grid(row=2,column=2)
+delQButton.grid(row=4,column=3)
 delQButton.config(background='red', foreground='#FFFF00')
 #clear out/in area button
 clearEntryButton = Button(frame,text='Wyczyść out/in', command=clearOutput)
-clearEntryButton.grid(row=1,column=2)
+clearEntryButton.grid(row=5,column=3)
 clearEntryButton.config(background='gray', foreground='#FFFF00')
 #change status (on/off) button
 changeStatusButton = Button(frame,text='Włącz/Wyłącz zadanie', command=changeStatus)
-changeStatusButton.grid(row=6,column=2)
+changeStatusButton.grid(row=4,column=1)
 changeStatusButton.config(background='blue', foreground='#FFFF00')
 
 #change task params button
 updateTaskButton = Button(frame,text='Modyfikuj zadanie', command=updateTask)
-updateTaskButton.grid(sticky=E,row=6,column=0)
+updateTaskButton.grid(sticky=N,row=4,column=2)
 updateTaskButton.config(background='blue', foreground='#FFFF00')
 
 #random task button
 randomTaskButton = Button(frame,text='Losowe zadanie', command=randomTask)
-randomTaskButton.grid(sticky=E,row=7,column=0)
+randomTaskButton.grid(sticky=N,row=5,column=0)
 randomTaskButton.config(background='green', foreground='#FFFF00')
 
 #sort order priority
 sortPriorityTaskButton = Button(frame,text='Od najważniejszego', command=sortPriority)
-sortPriorityTaskButton.grid(sticky=E,row=5,column=0)
+sortPriorityTaskButton.grid(sticky=N,row=3,column=3)
 sortPriorityTaskButton.config(background='green', foreground='#FFFF00')
 
 #output big textfield area 
-txt = Text(frame,width=100, height=20, font = helv36)
-txt.grid(sticky=W+N, row=0,column=0, padx=5, pady=5) 
+txt = Text(frame,width=100, height=20, font=helv36)
+txt.grid(sticky=W+N, row=0,column=0, padx=5, pady=5,columnspan=4) 
 
 root.mainloop()
 mydb.close()
