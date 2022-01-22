@@ -1,5 +1,6 @@
 ﻿#testing mysql + tkinter
 from tkinter import * 
+from tkinter import font as tkFont  # for convenience
 import mysql.connector
 import time
 
@@ -7,23 +8,44 @@ mydb = mysql.connector.connect(host="localhost",user="root",passwd="root",databa
 
 root = Tk()  
 root.resizable(width=False, height=True)
-
+helv36 = tkFont.Font(family='Courier', size=13, weight='bold')
 #DEFS
+def sortPriority():
+    #random task 
+    clearOutput()
+    query="SELECT task_id,task_title,task_status,task_priority FROM tasks WHERE task_status=1 ORDER BY task_priority DESC"
+    f = ""
+    cursor = mydb.cursor()
+    cursor.execute(query)
+    for (task_id,task_title,task_status,task_priority) in cursor:
+        f = f + "{}  {}  Status:{}  Priorytet:{}\n".format(task_id,task_title,task_status,task_priority)
+    cursor.close()  
+    txt.insert('2.0',f) #na początek
 
+def randomTask():
+    #random task 
+    clearOutput()
+    query="SELECT task_id,task_title,task_status,task_priority FROM tasks WHERE task_status=1 ORDER BY RAND() LIMIT 1"
+    f = ""
+    cursor = mydb.cursor()
+    cursor.execute(query)
+    for (task_id,task_title,task_status,task_priority) in cursor:
+        f = f + "{}  {}  Status:{}  Priorytet:{}\n".format(task_id,task_title,task_status,task_priority)
+    cursor.close()  
+    txt.insert('2.0',f) #na początek
+      
 def updateTask():
     #change Taskstatus of task
     query="UPDATE tasks SET task_title='{}',task_priority={},task_status={} WHERE task_id={}".format(
     taskEntry.get(),
     priorityEntry.get(),
     statusEntry.get(),
-    idTaskEntry.get())
-    
+    idTaskEntry.get())    
     cursor = mydb.cursor()
     cursor.execute(query)
     mydb.commit()       
     cursor.close()  
-
-    
+ 
 def showQOffButton():
 #action after click 'show task' button
   clearOutput()
@@ -91,11 +113,16 @@ def delQButton():
     cursor.close()
     
 def clearOutput():
-#delete data from output in textfield
+#delete data from out/in in textfield
     txt.delete('1.0',END)
+    taskEntry.delete(0,END)
+    priorityEntry.delete(0,END)
+    statusEntry.delete(0,END)
+    idTaskEntry.delete(0,END)
     
     
-#ENTRY
+    
+#ENTRYS
 frame = Frame(root,borderwidth=4)  
 frame.grid(row=0, column=1 )
 frame.config(background='black')
@@ -124,15 +151,15 @@ idTaskLabel.grid(sticky=E, row=7, column=1, padx=5, pady=5)
 #show tasks button
 showQButton = Button(frame,text='Pokaż pytania', command=showQButton)
 showQButton.grid(row=4,column=2)
-showQButton.config(background='blue', foreground='#FFFF00')
+showQButton.config(background='green', foreground='#FFFF00')
 #show ON
 showQOnButton = Button(frame,text='Pokaż włączone', command=showQOnButton)
 showQOnButton.grid(row=5,column=2)
-showQOnButton.config(background='blue', foreground='#FFFF00')
+showQOnButton.config(background='green', foreground='#FFFF00')
 #show OFF
 showQOffButton = Button(frame,text='Pokaż wyłączone', command=showQOffButton)
 showQOffButton.grid(row=7,column=2)
-showQOffButton.config(background='blue', foreground='#FFFF00')
+showQOffButton.config(background='green', foreground='#FFFF00')
 #add task button
 addQButton = Button(frame,text='Dodaj zadanie', command=addQButton)
 addQButton.grid(row=3,column=2)
@@ -140,23 +167,33 @@ addQButton.config(background='blue', foreground='#FFFF00')
 #delete task by id button
 delQButton = Button(frame,text='Usuń zadanie po ID', command=delQButton)
 delQButton.grid(row=2,column=2)
-delQButton.config(background='blue', foreground='#FFFF00')
-#clear output area button
-clearEntryButton = Button(frame,text='Wyczyść output', command=clearOutput)
+delQButton.config(background='red', foreground='#FFFF00')
+#clear out/in area button
+clearEntryButton = Button(frame,text='Wyczyść out/in', command=clearOutput)
 clearEntryButton.grid(row=1,column=2)
-clearEntryButton.config(background='blue', foreground='#FFFF00')
+clearEntryButton.config(background='gray', foreground='#FFFF00')
 #change status (on/off) button
 changeStatusButton = Button(frame,text='Włącz/Wyłącz zadanie', command=changeStatus)
 changeStatusButton.grid(row=6,column=2)
 changeStatusButton.config(background='blue', foreground='#FFFF00')
 
-#change task params
+#change task params button
 updateTaskButton = Button(frame,text='Modyfikuj zadanie', command=updateTask)
 updateTaskButton.grid(sticky=E,row=6,column=0)
 updateTaskButton.config(background='blue', foreground='#FFFF00')
 
+#random task button
+randomTaskButton = Button(frame,text='Losowe zadanie', command=randomTask)
+randomTaskButton.grid(sticky=E,row=7,column=0)
+randomTaskButton.config(background='green', foreground='#FFFF00')
+
+#sort order priority
+sortPriorityTaskButton = Button(frame,text='Od najważniejszego', command=sortPriority)
+sortPriorityTaskButton.grid(sticky=E,row=5,column=0)
+sortPriorityTaskButton.config(background='green', foreground='#FFFF00')
+
 #output big textfield area 
-txt = Text(frame,width=100, height=20)
+txt = Text(frame,width=100, height=20, font = helv36)
 txt.grid(sticky=W+N, row=0,column=0, padx=5, pady=5) 
 
 root.mainloop()
