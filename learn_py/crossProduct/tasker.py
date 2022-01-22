@@ -9,6 +9,21 @@ root = Tk()
 root.resizable(width=False, height=True)
 
 #DEFS
+
+def updateTask():
+    #change Taskstatus of task
+    query="UPDATE tasks SET task_title='{}',task_priority={},task_status={} WHERE task_id={}".format(
+    taskEntry.get(),
+    priorityEntry.get(),
+    statusEntry.get(),
+    idTaskEntry.get())
+    
+    cursor = mydb.cursor()
+    cursor.execute(query)
+    mydb.commit()       
+    cursor.close()  
+
+    
 def showQOffButton():
 #action after click 'show task' button
   clearOutput()
@@ -134,6 +149,11 @@ clearEntryButton.config(background='blue', foreground='#FFFF00')
 changeStatusButton = Button(frame,text='Włącz/Wyłącz zadanie', command=changeStatus)
 changeStatusButton.grid(row=6,column=2)
 changeStatusButton.config(background='blue', foreground='#FFFF00')
+
+#change task params
+updateTaskButton = Button(frame,text='Modyfikuj zadanie', command=updateTask)
+updateTaskButton.grid(sticky=E,row=6,column=0)
+updateTaskButton.config(background='blue', foreground='#FFFF00')
 
 #output big textfield area 
 txt = Text(frame,width=100, height=20)
