@@ -47,7 +47,7 @@ def executeChangeStatus():
 def executeShowTButon():
     #show all tasks and insert to txtArea
     executeClearOutput()    
-    showQButon(mydb,txtArea)  
+    showTButon(mydb,txtArea)  
 def executeAddTButon():
     #add task to db
     addTButon(mydb,taskEntry,statusEntry,priorityEntry)  
@@ -63,6 +63,7 @@ def executeClearOutput():
 frame = Frame(root,borderwidth=4)  
 frame.grid(row=0, column=1 )
 frame.config(background='black')
+
 
 taskEntry = Entry(frame, width=40) 
 taskEntry.grid(sticky=N,row=2,column=0,padx=5, pady=5) 
@@ -86,9 +87,9 @@ idTaskLabel.grid(sticky=N, row=1, column=3, padx=5, pady=5)
 
 #BUTTONS
 #show tasks button
-showQButton = Button(frame,text='Pokaż pytania', command=executeShowTButon)
-showQButton.grid(row=3,column=0)
-showQButton.config(background='green', foreground='#FFFF00')
+showTButton = Button(frame,text='Pokaż pytania', command=executeShowTButon)
+showTButton.grid(row=3,column=0)
+showTButton.config(background='green', foreground='#FFFF00')
 #show ON
 showTOnButton = Button(frame,text='Pokaż włączone', command=executeShowTOnButon)
 showTOnButton.grid(row=3,column=1)
@@ -98,13 +99,13 @@ showTOffButton = Button(frame,text='Pokaż wyłączone', command=executeShowTOff
 showTOffButton.grid(row=3,column=2)
 showTOffButton.config(background='green', foreground='#FFFF00')
 #add task button
-addQButton = Button(frame,text='Dodaj zadanie', command=executeAddTButon)
-addQButton.grid(row=4,column=0)
-addQButton.config(background='blue', foreground='#FFFF00')
+addTButton = Button(frame,text='Dodaj zadanie', command=executeAddTButon)
+addTButton.grid(row=4,column=0)
+addTButton.config(background='blue', foreground='#FFFF00')
 #delete task by id button
-delQButton = Button(frame,text='Usuń zadanie po ID', command=executeDelTButon)
-delQButton.grid(row=4,column=3)
-delQButton.config(background='red', foreground='#FFFF00')
+delTButton = Button(frame,text='Usuń zadanie po ID', command=executeDelTButon)
+delTButton.grid(row=4,column=3)
+delTButton.config(background='red', foreground='#FFFF00')
 #clear out/in area button
 clearEntryButton = Button(frame,text='Wyczyść out/in', command=executeClearOutput)
 clearEntryButton.grid(row=5,column=3)
