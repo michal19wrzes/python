@@ -1,4 +1,4 @@
-def randomTask(mydb,txtArea):
+def randomTask(self,mydb,txtArea):
     #return random task querry result 
     query="SELECT task_id,task_title,task_status,task_priority FROM tasks WHERE task_status=1 ORDER BY RAND() LIMIT 1"
     f = ""

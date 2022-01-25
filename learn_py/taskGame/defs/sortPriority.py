@@ -1,4 +1,4 @@
-def sortPriority(mydb,txtArea):
+def sortPriority(self,mydb,txtArea):
     #return sortPriority DESC querry result
     query="SELECT task_id,task_title,task_status,task_priority FROM tasks WHERE task_status=1 ORDER BY task_priority DESC"
     f = ""

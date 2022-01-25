@@ -1,25 +1,11 @@
 ﻿#testing mysql + tk
 #python -m taskGame.tasker
-from .defs.sortPriority import sortPriority
-from .defs.randomTask import randomTask
-from .defs.updateTask import updateTask
-from .defs.showTOffButon import showTOffButon
-from .defs.showTOnButon import showTOnButon
-from .defs.changeStatus import changeStatus
-from .defs.showTButon import showTButon
-from .defs.addTButon import addTButon
-from .defs.delTButon import delTButon
-from .defs.clearOutput import clearOutput
-
 import tkinter as tk
 from tkinter import font as tkFont  # for convenience
 import mysql.connector
 import time
 
 mydb = mysql.connector.connect(host="localhost",user="root",passwd="root",database="corobic_db")
-
-
-
 
 class SampleApp(tk.Tk):
     def __init__(self,*args,**kwargs):
@@ -69,40 +55,7 @@ class PageOne(tk.Frame):
     from .defs.addTButon import addTButon
     from .defs.delTButon import delTButon
     from .defs.clearOutput import clearOutput
-    # def executeSortPriority():
-    # #insert priority querry result to output entry
-        # executeClearOutput()
-        # sortPriority(mydb,txtArea)    
-    # def executeRandomTask():
-    # #insert randomTask querry result to output entry
-        # randomTask(mydb,txtArea)#na początek  
-    # def executeUpdateTask():
-    # #update task by the entered params where id = idTaskEntry
-        # updateTask(mydb,taskEntry,priorityEntry,statusEntry,idTaskEntry)   
-    # def executeShowTOffButon():
-    # #show disabled tasks
-        # executeClearOutput()
-        # showTOffButon(mydb,txtArea)    
-    # def executeShowTOnButon():
-    # #show enabled tasks
-        # executeClearOutput()
-        # showTOnButon(mydb,txtArea)  
-    # def executeChangeStatus():
-    # #change status (0|1) task 
-        # changeStatus(mydb,idTaskEntry)  
-    # def executeShowTButon():
-    # #show all tasks and insert to txtArea
-        # executeClearOutput()    
-        # showTButon(mydb,txtArea)  
-    # def executeAddTButon():
-    # #add task to db
-        # addTButon(mydb,taskEntry,statusEntry,priorityEntry)  
-    # def executeDelTButon():
-    # #delete task from db
-        # delTButon(mydb,idTaskEntry)  
-    # def executeClearOutput():
-    # #delete inserted data task from output and input textfield
-        # clearOutput(txtArea,taskEntry,priorityEntry,statusEntry,idTaskEntry)
+    
     def __init__(self,parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
@@ -178,25 +131,19 @@ class PageOne(tk.Frame):
         sortPriorityTaskButton = tk.Button(self,text='Od najważniejszego', command=lambda:self.sortPriority(mydb,txtArea))
         sortPriorityTaskButton.grid(sticky="N",row=3,column=3)
         sortPriorityTaskButton.config(background='green', foreground='#FFFF00')
+        #sort order priority
+        backButton = tk.Button(self, text="Wróć do menu",
+                                command=lambda: controller.show_frame("StartPage"))
+        backButton.grid(row=5,column=2)
 
         #output big textfield area 
-        txtArea = tk.Text(self,width=100, height=20)
+        txtArea = tk.Text(self,width=100, height=20, font=controller.title_font)
         txtArea.grid(sticky="wn", row=0,column=0, padx=5, pady=5,columnspan=4)
         
-    
-
-
-    #ENTRYS
-    #frame = tk.Frame(controller,borderwidth=4)  
-    #frame.grid(row=0, column=1 )
-    #frame.config(background='black')
-
-
-    
 class PageTwo(tk.Frame):
 
     def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent)
+        tk.Frame.__init__(self, parent)      
         self.controller = controller
         label = tk.Label(self, text="This is page 2", font=controller.title_font)
         label.grid(pady=10)

@@ -1,5 +1,5 @@
 from tkinter import *
-def clearOutput(txtArea,taskEntry,priorityEntry,statusEntry,idTaskEntry):
+def clearOutput(self,txtArea,taskEntry,priorityEntry,statusEntry,idTaskEntry):
     #delete data from out/in in textfield
     txtArea.delete('1.0',END)
     taskEntry.delete(0,END)
