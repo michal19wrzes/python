@@ -1,4 +1,4 @@
-def showTButon(mydb,txtArea):
+def showTButon(self,mydb,txtArea):
 #action after click 'show task' button
   query="SELECT task_id,task_title,task_status,task_priority FROM tasks"
   f = ""
