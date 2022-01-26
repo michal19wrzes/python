@@ -15,10 +15,7 @@ class PageOne(tk.Frame):
     def __init__(self,parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
-        label = tk.Label(self, text="This is menu", font=controller.title_font)
-        button = tk.Button(self, text="Go to the start page",
-                                command=lambda: controller.show_frame("StartPage"))
-        button.grid()
+        
         frame = tk.Frame(self,borderwidth=4)  
         frame.grid(row=0, column=1 )
         frame.config(background='black')

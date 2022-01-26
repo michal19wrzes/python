@@ -1,10 +1,4 @@
-﻿#testing mysql + tk
-#python -m taskGame.tasker
-#import tkinter as tk
-#from tkinter import font as tkFont  # for convenience
-
-
-import tkinter as tk
+﻿import tkinter as tk
 from tkinter import font as tkFont
 from .classess.StartPage import StartPage
 from .classess.PageOne import PageOne
