@@ -8,14 +8,14 @@ mydb = mysql.connector.connect(host="localhost",user="root",passwd="root",databa
 class SampleApp(tk.Tk):  
     def __init__(self,*args,**kwargs):
         tk.Tk.__init__(self,*args,**kwargs)      
-        self.title_font = tkFont.Font(family='Courier', size=13, weight='bold')
+        self.title_font = tkFont.Font(family='Courier', size=16, weight='bold')
         self.mydb = mydb
-        mainFrame = tk.Frame(self,borderwidth=4)
-        mainFrame.grid(row=0, column=1)
+        mainFrame = tk.Frame(self,borderwidth=10)
+        mainFrame.grid(row=0, column=0)
         mainFrame.config(background='black')
         
         self.frames = {}
-        for F in (StartPage, PageOne, PageTwo): #?
+        for F in (StartPage, PageTwo, PageOne): #?
             page_name = F.__name__
             frame = F(parent=mainFrame, controller=self) #?
             self.frames[page_name] = frame
@@ -30,7 +30,7 @@ class SampleApp(tk.Tk):
 if __name__ == "__main__":
     app = SampleApp()
     app.mainloop()
-print("to sie dzieje")
+
 mydb.close()
 
 

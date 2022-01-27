@@ -13,7 +13,7 @@ class PageOne(tk.Frame):
     from ..defs.clearOutput import clearOutput
     
     def __init__(self,parent, controller):
-        tk.Frame.__init__(self, parent)
+        tk.Frame.__init__(self, parent,background='black')
         self.controller = controller
         
         frame = tk.Frame(self,borderwidth=4)  
@@ -90,6 +90,6 @@ class PageOne(tk.Frame):
         backButton.grid(row=5,column=2)
 
         #output big textfield area 
-        txtArea = tk.Text(self,width=100, height=20, font=controller.title_font)
+        txtArea = tk.Text(self,width=100, height=20, font=controller.title_font,background='gray')
         txtArea.grid(sticky="wn", row=0,column=0, padx=5, pady=5,columnspan=4)
         
