@@ -5,7 +5,13 @@ class GamesPage(tk.Frame):
         tk.Frame.__init__(self, parent,background='black')      
         self.controller = controller
         
-        label = tk.Label(self, text="Wybierz tryb",width=25, font=controller.title_font)
+        label = tk.Label(self,
+                         text="Wybierz tryb",
+                         font=controller.title_font,
+                         pady=30,
+                         padx=5,
+                         width=25,
+                         bg='violet')
         label.grid(row=0, column=0 ,sticky="S", pady=30,padx=20)
         
         button = tk.Button(self,
