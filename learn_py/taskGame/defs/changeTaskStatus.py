@@ -1,4 +1,4 @@
-def changeStatus(self,mydb,idTaskEntry):
+def changeTaskStatus(self,mydb,idTaskEntry):
     #change status (0|1) of task
     query="SELECT task_status FROM tasks where task_id ={}".format(idTaskEntry.get())
     cursor = mydb.cursor()

@@ -1,15 +1,15 @@
 import tkinter as tk
 
 class TaskManagePage(tk.Frame):
-    from ..defs.sortPriority import sortPriority
+    from ..defs.sortTaskPriority import sortTaskPriority
     from ..defs.randomTask import randomTask
     from ..defs.updateTask import updateTask
-    from ..defs.showTOffButon import showTOffButon
-    from ..defs.showTOnButon import showTOnButon
-    from ..defs.changeStatus import changeStatus
-    from ..defs.showTButon import showTButon
-    from ..defs.addTButon import addTButon
-    from ..defs.delTButon import delTButon
+    from ..defs.showTasksOff import showTasksOff
+    from ..defs.showTasksOn import showTasksOn
+    from ..defs.changeTaskStatus import changeTaskStatus
+    from ..defs.showTasks import showTasks
+    from ..defs.addTask import addTask
+    from ..defs.delTask import delTask
     from ..defs.clearOutput import clearOutput
     
     def __init__(self,parent, controller):
@@ -42,23 +42,23 @@ class TaskManagePage(tk.Frame):
 
         #BUTTONS
         #show tasks button
-        showTButton = tk.Button(self,text='Pokaż pytania', command=lambda: self.showTButon(controller.mydb,txtArea))
+        showTButton = tk.Button(self,text='Pokaż pytania', command=lambda: self.showTasks(controller.mydb,txtArea))
         showTButton.grid(row=3,column=0)
         showTButton.config(background='green', foreground='#FFFF00')
         #show ON
-        showTOnButton = tk.Button(self,text='Pokaż włączone', command=lambda: self.showTOnButon(controller.mydb,txtArea))
+        showTOnButton = tk.Button(self,text='Pokaż włączone', command=lambda: self.showTasksOn(controller.mydb,txtArea))
         showTOnButton.grid(row=3,column=1)
         showTOnButton.config(background='green', foreground='#FFFF00')
         #show OFF
-        showTOffButton = tk.Button(self,text='Pokaż wyłączone', command=lambda: self.showTOffButon(controller.mydb,txtArea))
+        showTOffButton = tk.Button(self,text='Pokaż wyłączone', command=lambda: self.showTasksOff(controller.mydb,txtArea))
         showTOffButton.grid(row=3,column=2)
         showTOffButton.config(background='green', foreground='#FFFF00')
         #add task button
-        addTButton = tk.Button(self,text='Dodaj zadanie', command=lambda: self.addTButon(controller.mydb,taskEntry,statusEntry,priorityEntry))
+        addTButton = tk.Button(self,text='Dodaj zadanie', command=lambda: self.addTask(controller.mydb,taskEntry,statusEntry,priorityEntry))
         addTButton.grid(row=4,column=0)
         addTButton.config(background='blue', foreground='#FFFF00')
         #delete task by id button
-        delTButton = tk.Button(self,text='Usuń zadanie po ID', command=lambda: self.delTButon(controller.mydb,idTaskEntry))
+        delTButton = tk.Button(self,text='Usuń zadanie po ID', command=lambda: self.delTask(controller.mydb,idTaskEntry))
         delTButton.grid(row=4,column=3)
         delTButton.config(background='red', foreground='#FFFF00')
         #clear out/in area button
@@ -66,7 +66,7 @@ class TaskManagePage(tk.Frame):
         clearEntryButton.grid(row=5,column=3)
         clearEntryButton.config(background='gray', foreground='#FFFF00')
         #change status (on/off) button
-        changeStatusButton = tk.Button(self,text='Włącz/Wyłącz zadanie', command=lambda: self.changeStatus(controller.mydb,idTaskEntry))
+        changeStatusButton = tk.Button(self,text='Włącz/Wyłącz zadanie', command=lambda: self.changeTaskStatus(controller.mydb,idTaskEntry))
         changeStatusButton.grid(row=4,column=1)
         changeStatusButton.config(background='blue', foreground='#FFFF00')
 
@@ -81,7 +81,7 @@ class TaskManagePage(tk.Frame):
         randomTaskButton.config(background='green', foreground='#FFFF00')
 
         #sort order priority button
-        sortPriorityTaskButton = tk.Button(self,text='Od najważniejszego', command=lambda:self.sortPriority(controller.mydb,txtArea))
+        sortPriorityTaskButton = tk.Button(self,text='Od najważniejszego', command=lambda:self.sortTaskPriority(controller.mydb,txtArea))
         sortPriorityTaskButton.grid(sticky="N",row=3,column=3)
         sortPriorityTaskButton.config(background='green', foreground='#FFFF00')
         #back to menu button

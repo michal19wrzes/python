@@ -10,7 +10,7 @@ class GamesPage(tk.Frame):
         
         button = tk.Button(self,
                            text="Skojarzenia",
-                           command=lambda: controller.show_frame("MenuPage"),
+                           command=lambda: controller.show_frame("AssociateGamePage"),
                            pady=30,
                            padx=5,
                            width=25,
@@ -18,12 +18,13 @@ class GamesPage(tk.Frame):
                            font = controller.title_font)
         button.grid(row=1, column=0,sticky="S",pady=30,padx=5)
 
-        button = tk.Button(self,
-                           text="Wróć do menu",
+        button1 = tk.Button(self,
+                           text="Cofnij do menu",
                            command=lambda: controller.show_frame("MenuPage"),
                            pady=30,
                            padx=5,
                            width=25,
                            bg='violet',
                            font = controller.title_font)
-        button.grid(row=2,column=0,sticky="S",pady=30,padx=50)
+        button1.grid(row=2,column=0,sticky="S",pady=30,padx=50)
+

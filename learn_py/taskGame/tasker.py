@@ -2,7 +2,9 @@
 from tkinter import font as tkFont
 from .classess.MenuPage import MenuPage
 from .classess.TaskManagePage import TaskManagePage
+from .classess.UserManagePage import UserManagePage
 from .classess.GamesPage import GamesPage
+from .classess.AssociateGamePage import AssociateGamePage
 import mysql.connector
 mydb = mysql.connector.connect(host="localhost",user="root",passwd="root",database="corobic_db")
 class mainApp(tk.Tk):  
@@ -15,7 +17,7 @@ class mainApp(tk.Tk):
         mainFrame.config(background='black')
         
         self.frames = {}
-        for F in (MenuPage, GamesPage, TaskManagePage): #?
+        for F in (MenuPage, GamesPage, TaskManagePage,AssociateGamePage,UserManagePage): #?
             page_name = F.__name__
             frame = F(parent=mainFrame, controller=self) #?
             self.frames[page_name] = frame

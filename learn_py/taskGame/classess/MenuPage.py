@@ -51,9 +51,20 @@ class MenuPage(tk.Frame):
         self.button3 = tk.Button(self,
                                  font = controller.title_font,
                                  bg="violet",
+                                 text="Zarządzaj graczami",
+                                 command=lambda: controller.show_frame("UserManagePage"),
+                                 pady=30,
+                                 width=25,
+                                 padx=5)
+        self.button3.grid(row=3, column=0,sticky="S",pady=30,padx=5)    
+        
+        self.button4 = tk.Button(self,
+                                 font = controller.title_font,
+                                 bg="violet",
                                  text="wylacz zdjecie",
                                  command=lambda: self.imgLabel.destroy(),
                                  pady=30,
                                  width=25,
                                  padx=5)
-        self.button3.grid(row=3, column=0,sticky="S",pady=30,padx=5)
+        self.button4.grid(row=4, column=0,sticky="S",pady=30,padx=5)
+        
