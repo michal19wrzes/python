@@ -2,7 +2,7 @@ import tkinter as tk
 from PIL import ImageTk, Image
 #pip install pillow
 
-class StartPage(tk.Frame):
+class MenuPage(tk.Frame):
 
 
 
@@ -31,7 +31,7 @@ class StartPage(tk.Frame):
         self.button2 = tk.Button(self,
                             font = controller.title_font,
                             bg="violet", text="Graj",
-                            command=lambda: controller.show_frame("PageTwo"),
+                            command=lambda: controller.show_frame("GamesPage"),
                             pady=30,
                             width=25,
                             padx=5)
@@ -40,7 +40,7 @@ class StartPage(tk.Frame):
         
         self.button1 = tk.Button(self,bg="violet",
                             text="Zarządzaj zadaniami",
-                            command=lambda: controller.show_frame("PageOne"),
+                            command=lambda: controller.show_frame("TaskManagePage"),
                             pady=30,
                             padx=5,
                             width=25,

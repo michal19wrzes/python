@@ -1,6 +1,6 @@
 import tkinter as tk
 
-class PageOne(tk.Frame):
+class TaskManagePage(tk.Frame):
     from ..defs.sortPriority import sortPriority
     from ..defs.randomTask import randomTask
     from ..defs.updateTask import updateTask
@@ -86,7 +86,7 @@ class PageOne(tk.Frame):
         sortPriorityTaskButton.config(background='green', foreground='#FFFF00')
         #back to menu button
         backButton = tk.Button(self, text="Wróć do menu",
-                                command=lambda: controller.show_frame("StartPage"))
+                                command=lambda: controller.show_frame("MenuPage"))
         backButton.grid(row=5,column=2)
 
         #output big textfield area 
