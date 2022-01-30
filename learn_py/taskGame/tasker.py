@@ -5,6 +5,7 @@ from .classess.TaskManagePage import TaskManagePage
 from .classess.UserManagePage import UserManagePage
 from .classess.GamesPage import GamesPage
 from .classess.AssociateGamePage import AssociateGamePage
+from .classess.StatesCitiesGamePage import StatesCitiesGamePage
 import mysql.connector
 mydb = mysql.connector.connect(host="localhost",user="root",passwd="root",database="corobic_db")
 class mainApp(tk.Tk):  
@@ -19,7 +20,12 @@ class mainApp(tk.Tk):
         mainFrame.config(background='black')
         
         self.frames = {}
-        for F in (MenuPage, GamesPage, TaskManagePage,AssociateGamePage,UserManagePage): #?
+        for F in (MenuPage,
+                  GamesPage,
+                  TaskManagePage,
+                  AssociateGamePage,
+                  UserManagePage,
+                  StatesCitiesGamePage): #?
             page_name = F.__name__
             frame = F(parent=mainFrame, controller=self) #?
             self.frames[page_name] = frame

@@ -17,6 +17,16 @@ class GamesPage(tk.Frame):
                            bg='violet',
                            font = controller.title_font)
         button.grid(row=1, column=0,sticky="S",pady=30,padx=5)
+        
+        button2 = tk.Button(self,
+                           text="Państwa-Miasta",
+                           command=lambda: controller.show_frame("StatesCitiesGamePage"),
+                           pady=30,
+                           padx=5,
+                           width=25,
+                           bg='violet',
+                           font = controller.title_font)
+        button2.grid(row=2, column=0,sticky="S",pady=30,padx=5)
 
         button1 = tk.Button(self,
                            text="Cofnij do menu",
@@ -26,5 +36,5 @@ class GamesPage(tk.Frame):
                            width=25,
                            bg='violet',
                            font = controller.title_font)
-        button1.grid(row=2,column=0,sticky="S",pady=30,padx=50)
+        button1.grid(row=3,column=0,sticky="S",pady=30,padx=50)
 
