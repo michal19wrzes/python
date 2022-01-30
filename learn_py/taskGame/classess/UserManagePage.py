@@ -9,6 +9,7 @@ class UserManagePage(tk.Frame):
     from ..defs.addUser import addUser
     from ..defs.delUser import delUser
     from ..defs.clearOutput import clearOutput
+    from ..defs.resetPoints import resetPoints
     
     def __init__(self,parent, controller):
         tk.Frame.__init__(self, parent,background='black')
@@ -26,9 +27,9 @@ class UserManagePage(tk.Frame):
         userLabel.grid(sticky="N", row=1, column=1, padx=5, pady=5)
         userLabel.config(font=controller.font2)
 
-        idUserEntry = tk.Text(self, width=15,height=1)   
-        idUserEntry.grid(sticky="N",row=2,column=2,padx=5, pady=5)
-        idUserEntry.config(font=controller.font3)
+        self.idUserEntry = tk.Text(self, width=15,height=1)   
+        self.idUserEntry.grid(sticky="N",row=2,column=2,padx=5, pady=5)
+        self.idUserEntry.config(font=controller.font3)
         
         idUserLabel = tk.Label(self,text='Wprowadź ID gracza:') 
         idUserLabel.grid(sticky="N", row=1, column=2, padx=5, pady=5)
@@ -67,13 +68,18 @@ class UserManagePage(tk.Frame):
         
         #clear out/in area button
         clearEntryButton = tk.Button(self,text='Wyczyść out/in',
-                                     command=lambda: self.clearOutput(txtArea,userEntry,idUserEntry))
+                                     command=lambda: self.clearOutput(txtArea,userEntry,self.idUserEntry))
         clearEntryButton.grid(row=5,column=3)
         clearEntryButton.config(background='gray', foreground='#FFFF00', font=controller.font2,width=20,pady=5,padx=5,height=1)
+        #reset points button
+        resetPointsButton = tk.Button(self,text='Resetuj punkty',
+                                     command=lambda: self.resetPoints(controller.mydb))
+        resetPointsButton.grid(row=5,column=1)
+        resetPointsButton.config(background='gray', foreground='#FFFF00', font=controller.font2,width=20,pady=5,padx=5,height=1)
         
         #change status (on/off) button
         changeStatusButton = tk.Button(self,text='Włącz/Wyłącz gracza po ID',
-                                       command=lambda: self.changeUserStatus(controller.mydb,idUserEntry))
+                                       command=lambda: self.changeUserStatus(controller.mydb,self.idUserEntry))
         changeStatusButton.grid(row=4,column=1)
         changeStatusButton.config(background='blue', foreground='#FFFF00', font=controller.font2,width=20,pady=5,padx=5,height=1)
         

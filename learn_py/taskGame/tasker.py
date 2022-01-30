@@ -14,6 +14,7 @@ class mainApp(tk.Tk):
         self.title_font = tkFont.Font(family='Courier', size=16, weight='bold')
         self.font2 = tkFont.Font(family='Helvetica',size=13,weight='bold')
         self.font3 = tkFont.Font(family='Courier',size=20,weight='bold')
+        self.font4 = tkFont.Font(family='Courier',size=30,weight='bold')
         self.mydb = mydb
         mainFrame = tk.Frame(self,borderwidth=10)
         mainFrame.grid(row=0, column=0)
