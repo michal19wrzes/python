@@ -8,7 +8,7 @@ class StatesCitiesGamePage(tk.Frame):
 
     def __init__(self, parent, controller):
         self.x=0
-        
+        #TODO: zapisać dłuższe funkcje w plikach
         def acceptAnswer():
             listOfPlayers = self.getListOfPlayers(controller.mydb)
            #update task by the entered params where id = idTaskEntry, result inserted to big output entry
@@ -25,7 +25,7 @@ class StatesCitiesGamePage(tk.Frame):
         def nextPlayer():
             infoArea.delete('1.0',tk.END)
             listOfPlayers=self.getListOfPlayers(controller.mydb)
-            lenL= len(listOfPlayers)-1
+            lenL= len(listOfPlayers)-1 
             if self.x == lenL:
                 self.x=0
             else:
@@ -39,11 +39,32 @@ class StatesCitiesGamePage(tk.Frame):
             self.statesCitiesTaskGenerate(txtArea) #wylosowanie pytania
             self.showCurrentScore(controller.mydb,wynikiArea)#pokaż aktualny wynik graczy
             nextPlayer()#gracze jadą po kolei
+            startCountdown()
+            #rozpocznij odliczanie czasu 30sekund
+        def startCountdown():
+            import time
+            from threading import Thread
+  
+            def calcTime(t=30):
+                 while t:
+                    mins = t//60
+                    secs = t%60
+                    timer = '{:02d}:{:02d}'.format(mins,secs)
+                    timeArea.delete('1.0',tk.END)
+                    timeArea.insert('1.0',timer)
+                    time.sleep(1)
+                    t-=1
+                    #if stop_thread:
+                    #    break
+                        
+            
+            #stop_thread=True
+            testThread = Thread(target=calcTime)
+            testThread.start()
+            print("BLASTOFF")
             
             
-             
             
-            #jesli zalicz to +1 punkt dla gracza
             
         tk.Frame.__init__(self, parent,background='black')      
         self.controller = controller
@@ -58,6 +79,9 @@ class StatesCitiesGamePage(tk.Frame):
         
         infoArea = tk.Text(self,width=40, height=0.5, font=controller.font3,background='gray')
         infoArea.grid(sticky="sn", row=1,column=1, padx=5, pady=5,columnspan=2)
+        
+        timeArea = tk.Text(self,width=10, height=0.5, font=controller.font3,background='gray')
+        timeArea.grid(sticky="sn", row=1,column=3, padx=5, pady=5,columnspan=2)
         
         wynikiArea = tk.Text(self,width=20, height=10, font=controller.font3,background='gray')
         wynikiArea.grid(sticky="SN", row=2,column=3, padx=5, pady=5,rowspan=1)
