@@ -19,8 +19,6 @@ class StatesCitiesGamePage(tk.Frame):
             cursor.close()
             afterGenerate()
             
-        def denyAnswer():
-            afterGenerate()
             
         def nextPlayer():
             infoArea.delete('1.0',tk.END)
@@ -111,7 +109,7 @@ class StatesCitiesGamePage(tk.Frame):
 
         button2 = tk.Button(self,
                            text="Nie zalicz",
-                           command=denyAnswer,
+                           command=afterGenerate,
                            pady=11,
                            
                            width=15,

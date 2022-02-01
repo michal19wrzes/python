@@ -7,4 +7,4 @@ def showUsersOn(self,mydb,txtArea):
     for (task_id,task_title,task_status) in cursor:
         f = f + "{}  {}  Status:{} \n".format(task_id,task_title,task_status)
     cursor.close()  
-    txtArea.insert('2.0',f)
+    txtArea.insert('1.0',f)
