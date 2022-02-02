@@ -18,7 +18,7 @@ class StatesCitiesGamePage(tk.Frame):
 
             if count > 0:
                 # call countdown again after 1000ms (1s)
-                self.after(1000, countdown, count-1)
+                root.after(1000, countdown, count-1)
                 
         # def calcTime(t=30):
                  # while t:
