@@ -3,90 +3,24 @@ class StatesCitiesGamePage(tk.Frame):
     from ..defs.statesCitiesTaskGenerate import statesCitiesTaskGenerate
     from ..defs.showCurrentScore import showCurrentScore
     from ..defs.getListOfPlayers import getListOfPlayers
+    
     import time
     
     
-
+    
     def __init__(self, parent, controller):
+    
+        from ..defs.afterGenerate import afterGenerate
+        from ..defs.acceptAnswer import acceptAnswer
+        
         self.x=0
-        #TODO: zapisać dłuższe funkcje w plikach
-        
-        def countdown(count):
-            # change text in label
-            timeArea.delete('1.0',tk.END)
-            timeArea.insert('1.0',count)
-
-            if count > 0:
-                # call countdown again after 1000ms (1s)
-                self.after(1000, countdown, count-1)
-                
-        # def calcTime(t=30):
-                 # while t:
-                    # mins = t//60
-                    # secs = t%60
-                    # timer = '{:02d}:{:02d}'.format(mins,secs)
-                    # timeArea.delete('1.0',tk.END)
-                    # timeArea.insert('1.0',timer)
-                    # time.sleep(1)
-                    # t-=1
-                    # print(timer)
-                    
         
         
-        # def newTimer():
-            # from threading import Timer
-            # from threading import Thread
-            
-            # global testThread
-            # testThread = Thread(target=countdown,args=15)
-            # print("BLASTOFF")
-        # newTimer()
         
-        def acceptAnswer():
-            listOfPlayers = self.getListOfPlayers(controller.mydb)
-           #update task by the entered params where id = idTaskEntry, result inserted to big output entry
-            query="UPDATE users SET user_points=user_points+1 WHERE user_name ='{}'".format(listOfPlayers[self.x])
-            cursor = controller.mydb.cursor()
-            cursor.execute(query)
-            controller.mydb.commit()       
-            cursor.close()
-            afterGenerate()
-            
-            
-        def nextPlayer():
-            infoArea.delete('1.0',tk.END)
-            listOfPlayers=self.getListOfPlayers(controller.mydb)
-            lenL= len(listOfPlayers)-1 
-            if self.x == lenL:
-                self.x=0
-            else:
-                self.x += 1
-
-            f = 'Twoja kolej: {}'.format(listOfPlayers[self.x])
-            infoArea.insert('1.0',f)
-            
-        def afterGenerate():
-            wynikiArea.delete('1.0',tk.END)
-            txtArea.delete('1.0',tk.END)
-            self.statesCitiesTaskGenerate(txtArea) #wylosowanie pytania
-            self.showCurrentScore(controller.mydb,wynikiArea)#pokaż aktualny wynik graczy
-            nextPlayer()#gracze jadą po kolei
-            countdown(30)
-            # testThread.cancel()
-            # newTimer()
-            # testThread.start()
-            
-            #rozpocznij odliczanie czasu 30sekund
+               
         
-            
         
-            
-            
-            
-            
-            
-            
-            
+           
             
         tk.Frame.__init__(self, parent,background='black')      
         self.controller = controller
@@ -96,17 +30,17 @@ class StatesCitiesGamePage(tk.Frame):
         
         
         
-        txtArea = tk.Text(self,width=27, height=1, font=controller.font4,background='gray')
-        txtArea.grid(sticky="sn", row=2,column=1, padx=5, pady=5,columnspan=2)
+        self.txtArea = tk.Text(self,width=27, height=1, font=controller.font4,background='gray')
+        self.txtArea.grid(sticky="sn", row=2,column=1, padx=5, pady=5,columnspan=2)
         
-        infoArea = tk.Text(self,width=40, height=0.5, font=controller.font3,background='gray')
-        infoArea.grid(sticky="sn", row=1,column=1, padx=5, pady=5,columnspan=2)
+        self.infoArea = tk.Text(self,width=40, height=0.5, font=controller.font3,background='gray')
+        self.infoArea.grid(sticky="sn", row=1,column=1, padx=5, pady=5,columnspan=2)
         
-        timeArea = tk.Text(self,width=10, height=0.5, font=controller.font3,background='gray')
-        timeArea.grid(sticky="sn", row=1,column=3, padx=5, pady=5,columnspan=2)
+        self.timeArea = tk.Text(self,width=10, height=0.5, font=controller.font3,background='gray')
+        self.timeArea.grid(sticky="sn", row=1,column=3, padx=5, pady=5,columnspan=2)
         
-        wynikiArea = tk.Text(self,width=20, height=10, font=controller.font3,background='gray')
-        wynikiArea.grid(sticky="SN", row=2,column=3, padx=5, pady=5,rowspan=1)
+        self.wynikiArea = tk.Text(self,width=20, height=10, font=controller.font3,background='gray')
+        self.wynikiArea.grid(sticky="SN", row=2,column=3, padx=5, pady=5,rowspan=1)
         
         
         button = tk.Button(self,
@@ -133,7 +67,7 @@ class StatesCitiesGamePage(tk.Frame):
 
         button2 = tk.Button(self,
                            text="Nie zalicz",
-                           command=afterGenerate,
+                           command=lambda:afterGenerate(self,controller.mydb),
                            pady=11,
                            
                            width=15,
@@ -143,7 +77,7 @@ class StatesCitiesGamePage(tk.Frame):
 
         button3 = tk.Button(self,
                            text="Zalicz",
-                           command=lambda:acceptAnswer(),
+                           command=lambda:acceptAnswer(self,controller.mydb),
                            pady=11,
                            padx=5,
                            width=15,
