@@ -30,6 +30,9 @@ def statesCitiesTaskGenerate(self,txtArea):
                       'Kolor',
                       'Firma alkoholu lub papierosów',
                       'Dyscyplina sportu',
+                      'Piosenkarz',
+                      'Wieś',
+                      'Element ciała',
                       'Roślina']
     v = listOfCategory[random.randint(0,len(listOfCategory)-1)]
     f = randomCapitalLetter()
