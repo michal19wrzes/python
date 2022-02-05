@@ -45,7 +45,7 @@ class StatesCitiesGamePage(tk.Frame):
         
         button = tk.Button(self,
                            text="Rozpocznij",
-                           command=afterGenerate,
+                           command=lambda:afterGenerate(self, controller.mydb),
                            pady=30,
                            padx=5,
                            width=25,
