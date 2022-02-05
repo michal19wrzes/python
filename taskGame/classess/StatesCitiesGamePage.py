@@ -45,7 +45,7 @@ class StatesCitiesGamePage(tk.Frame):
         
         button = tk.Button(self,
                            text="Rozpocznij",
-                           command=lambda:afterGenerate(self, controller.mydb),
+                           command=lambda:afterGenerate(self, controller.mydb,controller.font3),
                            pady=30,
                            padx=5,
                            width=25,
@@ -67,7 +67,7 @@ class StatesCitiesGamePage(tk.Frame):
 
         button2 = tk.Button(self,
                            text="Nie zalicz",
-                           command=lambda:afterGenerate(self,controller.mydb),
+                           command=lambda:afterGenerate(self,controller.mydb,controller.font3),
                            pady=11,
                            
                            width=15,
@@ -77,7 +77,7 @@ class StatesCitiesGamePage(tk.Frame):
 
         button3 = tk.Button(self,
                            text="Zalicz",
-                           command=lambda:acceptAnswer(self,controller.mydb),
+                           command=lambda:acceptAnswer(self,controller.mydb,controller.font3),
                            pady=11,
                            padx=5,
                            width=15,

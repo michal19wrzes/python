@@ -6,6 +6,6 @@ def showCurrentScore(self,mydb,wynikiArea):
     cursor = mydb.cursor()
     cursor.execute(query)
     for (user_name,user_points) in cursor:
-        f = f + "{} : {}\n".format(user_name,user_points);  
+        f = f + "{} : {} \n".format(user_name,user_points);  
     cursor.close()  
     wynikiArea.insert('1.0',f) #na początek
