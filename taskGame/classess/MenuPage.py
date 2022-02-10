@@ -12,7 +12,7 @@ class MenuPage(tk.Frame):
         controller.title("Zadanio-inator")
         controller.resizable(False,False)
         
-        path=r"C:\\Users\\48791\\Desktop\\pythonowe\\taskGame\\img\\logo.jpg"
+        path=r"C:\\Users\\48791\\Desktop\\IT\\pythonowe\\taskGame\\img\\logo.jpg"
         image = Image.open(path)
         photo = ImageTk.PhotoImage(image)
         
