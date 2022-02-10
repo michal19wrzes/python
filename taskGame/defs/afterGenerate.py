@@ -10,5 +10,5 @@ def afterGenerate(self,mydb,font3):
         self.showCurrentScore(mydb,self.wynikiArea) #show curent score
         nextPlayer(self,mydb)
         countdown(self,31)
-        time.sleep(1) #Threads in output are execcuted in the same second what timer
+        time.sleep(1) #action after button is in the same time with countdown timer
      

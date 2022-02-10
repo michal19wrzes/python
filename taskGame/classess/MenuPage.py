@@ -7,7 +7,7 @@ class MenuPage(tk.Frame):
 
 
     def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent,background='black')
+        tk.Frame.__init__(self, parent,background='#14285c')
         self.controller = controller
         controller.title("Zadanio-inator")
         controller.resizable(False,False)

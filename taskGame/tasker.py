@@ -6,6 +6,7 @@ from .classess.UserManagePage import UserManagePage
 from .classess.GamesPage import GamesPage
 from .classess.AssociateGamePage import AssociateGamePage
 from .classess.StatesCitiesGamePage import StatesCitiesGamePage
+from .classess.GameHistoryPage import GameHistoryPage
 import mysql.connector
 mydb = mysql.connector.connect(host="localhost",user="root",passwd="root",database="corobic_db")
 class mainApp(tk.Tk):  
@@ -26,6 +27,7 @@ class mainApp(tk.Tk):
                   TaskManagePage,
                   AssociateGamePage,
                   UserManagePage,
+                  GameHistoryPage,
                   StatesCitiesGamePage): #?
             page_name = F.__name__
             frame = F(parent=mainFrame, controller=self) #?

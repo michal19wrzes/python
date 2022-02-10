@@ -12,12 +12,12 @@ class UserManagePage(tk.Frame):
     from ..defs.resetPoints import resetPoints
     
     def __init__(self,parent, controller):
-        tk.Frame.__init__(self, parent,background='black')
+        tk.Frame.__init__(self, parent,background='#14285c')
         self.controller = controller
         
         frame = tk.Frame(self,borderwidth=4)  
         frame.grid(row=0, column=1 )
-        frame.config(background='black')
+        frame.config(background='#14285c')
         
         userEntry = tk.Text(self, width=15,height=1) 
         userEntry.grid(row=2,column=1,padx=5, pady=5) 
@@ -98,6 +98,6 @@ class UserManagePage(tk.Frame):
         backButton.config(font=controller.font2,width=20,pady=5,padx=5,height=1)
 
         #output big textfield area 
-        txtArea = tk.Text(self,width=100, height=20, font=controller.title_font,background='gray')
-        txtArea.grid(sticky="wn", row=0,column=0, padx=5, pady=5,columnspan=4)
+        txtArea = tk.Text(self,width=110, height=20, font=controller.title_font,background='#94bdff')
+        txtArea.grid(sticky="wn", row=0,column=0, padx=5, pady=20,columnspan=4)
         
