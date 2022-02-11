@@ -9,8 +9,8 @@ class StatesCitiesGamePage(tk.Frame):
         from ..defs.afterGenerate import afterGenerate
         from ..defs.acceptAnswer import acceptAnswer
         
-        #need to nextPlayer
-        self.x=0
+        self.counter=0 #count of played rounds, need to history
+        self.x=0       #need to nextPlayer
         
         tk.Frame.__init__(self, parent,background='#14285c')      
         self.controller = controller
@@ -68,7 +68,7 @@ class StatesCitiesGamePage(tk.Frame):
 
         button4 = tk.Button(self,
                            text="Nie zalicz",
-                           command=lambda:afterGenerate(self,controller.mydb,controller.font3),
+                           command=lambda:afterGenerate(self,controller.mydb,controller.font3,2),
                            pady=11,
                            
                            width=15,

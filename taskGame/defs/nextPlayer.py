@@ -9,6 +9,11 @@ def nextPlayer(self,mydb):
         self.x=0
     else:
         self.x += 1
+        
+    t=listOfPlayers[self.x]
+    yield t
+    f = 'Twoja kolej: {}'.format(t)
+    
+    
 
-    f = 'Twoja kolej: {}'.format(listOfPlayers[self.x])
     self.infoArea.insert('1.0',f)

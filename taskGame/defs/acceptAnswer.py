@@ -7,4 +7,4 @@ def acceptAnswer(self, mydb,font3):
     cursor.execute(query)
     mydb.commit()       
     cursor.close()
-    afterGenerate(self,mydb,font3)
+    afterGenerate(self,mydb,font3,1)

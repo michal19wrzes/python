@@ -1,35 +1,29 @@
 import tkinter as tk
 
 class GameHistoryPage(tk.Frame):
-    from ..defs.updateUser import updateUser
-    from ..defs.showUsersOff import showUsersOff
-    from ..defs.showUsersOn import showUsersOn
-    from ..defs.changeUserStatus import changeUserStatus
-    from ..defs.showUsers import showUsers
-    from ..defs.addUser import addUser
-    from ..defs.delUser import delUser
+    
+    from ..defs.showGameHistory import showGameHistory
     from ..defs.clearOutput import clearOutput
     from ..defs.resetPoints import resetPoints
     
     def __init__(self,parent, controller):
         tk.Frame.__init__(self, parent,background='#14285c')
         self.controller = controller
-        
         frame = tk.Frame(self,borderwidth=4)  
         frame.grid(row=0, column=1 )
         frame.config(background='#14285c')
        
         #BUTTONS
         #show Users button
-        showUsersButton = tk.Button(self,text='Pokaż historię',
-                                    command=lambda: self.showUsers(controller.mydb,txtArea))
-        showUsersButton.grid(row=5,column=0)
-        showUsersButton.config(background='green', foreground='#FFFF00', font=controller.font2,width=25,pady=15,padx=5,height=2)
+        showHistoryButton = tk.Button(self,text='Pokaż historię',
+                                    command=lambda: self.showGameHistory(controller.mydb,txtArea))
+        showHistoryButton.grid(row=5,column=0)
+        showHistoryButton.config(background='green', foreground='#FFFF00', font=controller.font2,width=25,pady=15,padx=5,height=2)
         
        
         #clear out/in area button
         clearEntryButton = tk.Button(self,text='Wyczyść out/in',
-                                     command=lambda: self.clearOutput(txtArea,userEntry,self.idUserEntry))
+                                     command=lambda: self.clearOutput(txtArea))
         clearEntryButton.grid(row=5,column=2)
         clearEntryButton.config(background='gray', foreground='#FFFF00', font=controller.font2,width=25,pady=15,padx=5,height=2)
         #reset points button

@@ -62,7 +62,7 @@ class UserManagePage(tk.Frame):
         
         #delete User by id button
         delUserButton = tk.Button(self,text='Usuń gracza po ID',
-                                  command=lambda: self.delUser(controller.mydb,idUserEntry))
+                                  command=lambda: self.delUser(controller.mydb,self.idUserEntry))
         delUserButton.grid(row=4,column=3)
         delUserButton.config(background='red', foreground='#FFFF00', font=controller.font2,width=20,pady=5,padx=5,height=1)
         
