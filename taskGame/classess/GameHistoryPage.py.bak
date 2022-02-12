@@ -50,5 +50,5 @@ class GameHistoryPage(tk.Frame):
         #output big textfield area 
         txtArea = tk.Text(self,width=110, height=20, font=controller.title_font,background='#94bdff')
         txtArea.grid(sticky="wn", row=0,column=0, padx=5, pady=20,columnspan=4)
-        txtArea.insert("1.0",f"{'ID':3} {'Kategoria':25} {' ':13} {'Lit.':4} {' Gracz':8} {'Zaliczone':4}"+'\n\n')
+        txtArea.insert("1.0",f"{'ID':3} {'Kategoria':25} {' ':13} {'Lit.':4} {'Gracz':8} {'Zaliczone':4}"+'\n\n')
         
