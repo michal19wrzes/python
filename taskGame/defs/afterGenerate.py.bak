@@ -13,10 +13,12 @@ def afterGenerate(self,mydb,font3,but=None):
         player = list(nextPlayer(self,mydb))
         #button acceptAnswer press
         if but==1:
+            
             insertHistoryRecord(self,mydb,self.counter,catAndLetterList[0],catAndLetterList[1],player[0],1,tim)
             #print(catAndLetterList,player,'zal',self.counter,tim)
         #button denyAnswer press
         elif but==2:
+            
             insertHistoryRecord(self,mydb,self.counter,catAndLetterList[0],catAndLetterList[1],player[0],0,tim)
             #print(catAndLetterList,player,'niezal',self.counter,tim)
         countdown(self,31)
