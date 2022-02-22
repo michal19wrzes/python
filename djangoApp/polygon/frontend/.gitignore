@@ -1,0 +1,4 @@
+*.bak
+node_modules/
+migrations/
+__pycache__/
