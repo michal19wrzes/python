@@ -1,35 +1,74 @@
-import React, { Component } from 'react';
+import React, { useState,Component } from 'react';
 import Button from '@mui/material/Button';
-import { link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/Button';
 
+
 export default class AnotherPage extends Component {
-	constructor(props) {
-		super(props);
-	}
-	
-	render(){
-		return (
-			<Grid container spacing={1}>
-				<Grid item xs={12} align="center">
-					<Typography component="h4" variant="h4">
-						Test typography
-					</Typography>
-					<Typography component="h4" variant="h4">
-						Test typography
-					</Typography>
-					<Typography component="h4" variant="h4">
-						Test typography
-					</Typography>
-				</Grid>
-			</Grid>
-		);
-	}
+  defaultVotes = 2;
+
+  constructor(props) {
+    super(props);
+    
+    this.handleGuestCanPauseChange = this.handleGuestCanPauseChange.bind(this);
+  }
+  
+  handleGuestCanPauseChange(e) {
+    this.setState({
+      guestCanPause: e.target.value === "True" ? true : false,
+    });
+  }
+
+ 
+  render() {
+    return (
+      <Grid container spacing={1}>
+        <Grid item xs={12} align="center">
+          <Typography component="h4" variant="h4">
+            Create A Room
+          </Typography>
+        </Grid>
+        <Grid item xs={12} align="center">
+          <FormControl component="fieldset">
+            <FormHelperText>
+              <span align="center">Guest Control of Playback State</span>
+            </FormHelperText>
+            <RadioGroup
+              row="True"
+              defaultValue="True"
+              onChange={this.handleGuestCanPauseChange}
+            >
+              <FormControlLabel
+                value="True"
+                control={<Radio color="primary" />}
+                label="Play/Pause"
+                labelPlacement="bottom"
+              />
+              <FormControlLabel
+                value="False"
+                control={<Radio color="secondary" />}
+                label="No Control"
+                labelPlacement="bottom"
+              />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
+        
+        <Grid item xs={12} align="center">
+          <Button color="secondary" variant="contained" to="/" component={Link}>
+            Back
+          </Button>
+        </Grid>
+      </Grid>
+    );
+  }
 }
+	

@@ -17,11 +17,11 @@ from .models import Question, Choice
     # return render(request,'polls/index.html',context
     
 #REST API 
-class ChoiceView(generics.CreateAPIView):
+class ChoiceView(generics.ListAPIView):
     queryset = Choice.objects.all()
     serializer_class = ChoiceSerializer 
     
-class QuestionView(generics.CreateAPIView): #Create|List
+class QuestionView(generics.ListAPIView): #Create|List
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
 
