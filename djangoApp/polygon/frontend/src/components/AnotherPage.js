@@ -13,26 +13,18 @@ import RadioGroup from '@mui/material/Button';
 
 
 export default class AnotherPage extends Component {
-  defaultVotes = 2;
 
   constructor(props) {
     super(props);
 	this.state={
 		value : "Falsz"
-	};
-    
-    this.handleGuestCanPauseChange = this.handleGuestCanPauseChange.bind(this);
+	};  
   }
+  
   onChange = e =>{
 	  this.setState({value : e.target.value});
   }
-  handleGuestCanPauseChange(event) {
-    this.setState({
-      guestCanPause: event.target.value === "True" ? true : false,
-    });
-  }
-
- 
+  
   render() {
 	const{value} =this.state;
     return (
@@ -45,7 +37,7 @@ export default class AnotherPage extends Component {
         <Grid item xs={12} align="center">
           <FormControl>
             <FormHelperText>
-              <span align="center">Guest Control of Playback State</span>
+              <div align="center">Guest Control of Playback State</div>
             </FormHelperText>
             <RadioGroup>
               <FormControlLabel
