@@ -17,18 +17,24 @@ export default class AnotherPage extends Component {
 
   constructor(props) {
     super(props);
+	this.state={
+		value : "Falsz"
+	};
     
     this.handleGuestCanPauseChange = this.handleGuestCanPauseChange.bind(this);
   }
-  
-  handleGuestCanPauseChange(e) {
+  onChange = e =>{
+	  this.setState({value : e.target.value});
+  }
+  handleGuestCanPauseChange(event) {
     this.setState({
-      guestCanPause: e.target.value === "True" ? true : false,
+      guestCanPause: event.target.value === "True" ? true : false,
     });
   }
 
  
   render() {
+	const{value} =this.state;
     return (
       <Grid container spacing={1}>
         <Grid item xs={12} align="center">
@@ -37,24 +43,24 @@ export default class AnotherPage extends Component {
           </Typography>
         </Grid>
         <Grid item xs={12} align="center">
-          <FormControl component="fieldset">
+          <FormControl>
             <FormHelperText>
               <span align="center">Guest Control of Playback State</span>
             </FormHelperText>
-            <RadioGroup
-              row="True"
-              defaultValue="True"
-              onChange={this.handleGuestCanPauseChange}
-            >
+            <RadioGroup>
               <FormControlLabel
-                value="True"
+                value="Prawda"
                 control={<Radio color="primary" />}
+				checked={value==="Prawda"}
+				onChange={this.onChange}
                 label="Play/Pause"
                 labelPlacement="bottom"
               />
               <FormControlLabel
-                value="False"
+                value="Falsz"
                 control={<Radio color="secondary" />}
+				checked={value==="Falsz"}
+				onChange={this.onChange}
                 label="No Control"
                 labelPlacement="bottom"
               />
