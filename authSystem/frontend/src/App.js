@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { render } from "react-dom";
+import Home from './containers/Home';
+import Signup from './containers/Signup';
+import ResetPassword from './containers/ResetPassword';
+import Login from './containers/Login';
+import Activate from './containers/Activate';
+import Navbar from './containers/Navbar';
+import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+	constructor(props) {
+		super(props);
+	}
+	
+	render(){
+		return (
+			<Router>
+				
+				<Routes>
+					<Route exact path='/' element={<Home />} />
+					<Route exact path='/signup' element={<Signup />} />
+					<Route exact path='/reset-password' element={<ResetPassword />} />
+					<Route exact path='/login' element={<Login />} />
+					<Route exact path='/activate' element={<Activate />} />
+					
+					<Route path='/another' element={<h1>This is another</h1>} />
+				</Routes>
+				
+			</Router>
+		);
+	}
 }
- 
-export default App;
+/*get element by id*/
