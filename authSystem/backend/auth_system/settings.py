@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
+EMAIL_ADDRESS = os.environ.get('EMAIL_ADDRESS')     # mail to google account (env)
+EMAIL_PASS = os.environ.get('EMAIL_PASS')           # pass to google account (env)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -88,8 +90,8 @@ DATABASES = {
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'michal19wrz@gmail.com'
-EMAIL_HOST_PASSWORD = 'testowehaslo'
+EMAIL_HOST_USER = EMAIL_ADDRESS
+EMAIL_HOST_PASSWORD = EMAIL_PASS
 EMAIL_USE_TLS = True
 
 # Password validation
