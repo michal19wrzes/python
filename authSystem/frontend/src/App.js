@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import Home from './containers/Home';
 import Signup from './containers/Signup';
 import ResetPassword from './containers/ResetPassword';
+import ResetPasswordConfirm from './containers/ResetPasswordConfirm';
 import Login from './containers/Login';
 import Activate from './containers/Activate';
 import Navbar from './containers/Navbar';
@@ -22,8 +23,8 @@ export default class App extends Component {
 					<Route exact path='/signup' element={<Signup />} />
 					<Route exact path='/reset-password' element={<ResetPassword />} />
 					<Route exact path='/login' element={<Login />} />
-					<Route exact path='/activate' element={<Activate />} />
-					
+					<Route exact path='/activate/:uid/:token' element={<Activate />} />
+					<Route exact path='password/reset/confirm/:uid/:token' element={<ResetPasswordConfirm />} />
 					<Route path='/another' element={<h1>This is another</h1>} />
 				</Routes>
 				
