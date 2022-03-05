@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
+
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
@@ -14,15 +15,18 @@ import RadioGroup from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
 
+
 const Home = (props) => (
 		<div>
 			<Stack spacing ={2} align = 'center'>
 				<Navbar />
-				<h1>home</h1>
+				
 				<Typography component="h4" variant="h4">
-					essa
+					Home
 					
 				</Typography>
+				
+				
 				<Button color="secondary" variant="contained" to="/" component={Link}>
 					Back
 				  </Button>
