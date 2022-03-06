@@ -4,7 +4,6 @@ import SignInSide from './SignInSide';
 import Stack from '@mui/material/Stack';
 const Login = (props) => (
 		<div>
-			<Navbar />
 			<SignInSide /> 
 		</div>
 );
