@@ -9,6 +9,9 @@ import Activate from './containers/Activate';
 import Navbar from './containers/Navbar';
 import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 
+import { Provider } from 'react-redux';
+import store from './containers/store';
+
 export default class App extends Component {
 	constructor(props) {
 		super(props);
@@ -16,19 +19,19 @@ export default class App extends Component {
 	
 	render(){
 		return (
-			<Router>
-				
-				<Routes>
-					<Route exact path='/' element={<Home />} />
-					<Route exact path='/signup' element={<Signup />} />
-					<Route exact path='/reset-password' element={<ResetPassword />} />
-					<Route exact path='/login' element={<Login />} />
-					<Route exact path='/activate/:uid/:token' element={<Activate />} />
-					<Route exact path='password/reset/confirm/:uid/:token' element={<ResetPasswordConfirm />} />
-					<Route path='/another' element={<h1>This is another</h1>} />
-				</Routes>
-				
-			</Router>
+			<Provider store = {store}>
+				<Router>
+					<Routes>
+						<Route exact path='/' element={<Home />} />
+						<Route exact path='/signup' element={<Signup />} />
+						<Route exact path='/reset-password' element={<ResetPassword />} />
+						<Route exact path='/login' element={<Login />} />
+						<Route exact path='/activate/:uid/:token' element={<Activate />} />
+						<Route exact path='password/reset/confirm/:uid/:token' element={<ResetPasswordConfirm />} />
+						<Route path='/another' element={<h1>This is another</h1>} />
+					</Routes>
+				</Router>
+			</Provider>	
 		);
 	}
 }
