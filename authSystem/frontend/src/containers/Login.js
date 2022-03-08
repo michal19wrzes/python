@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -29,16 +29,25 @@ function Copyright(props) {
 }
 
 const theme = createTheme();
-const handleSubmit = e => {
-    e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
-const Login = ({login},props) => (
+ 
+const Login = ({login,isAuthenticated}) => {
+	const [formData,setFormData] = useState({
+		email: '',
+		password: ''
+	});
+	const {email,password} = formData;
+
+	const handleSubmit = e => {
+		e.preventDefault();
+		
+		  
+		
+		login(email,password);
+	};
+  
+  
+//const Login = ({login},props) => (
+	return (
 	<ThemeProvider theme={theme}>
 		  <Grid container component="main" sx={{ height: '100vh' }}>
 			<CssBaseline />
@@ -126,7 +135,11 @@ const Login = ({login},props) => (
 			</Grid>
 		  </Grid>
 		</ThemeProvider>
-);
+	);
+};
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
 
 //export default Login;
-export default connect(null,{ login })(Login);
+export default connect(mapStateToProps,{ login })(Login);
