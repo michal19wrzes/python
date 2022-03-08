@@ -10,7 +10,7 @@ import Navbar from './containers/Navbar';
 import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 
 import { Provider } from 'react-redux';
-import store from './containers/store';
+import store from './store';
 
 export default class App extends Component {
 	constructor(props) {

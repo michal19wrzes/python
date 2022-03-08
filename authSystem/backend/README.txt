@@ -1,2 +1,2 @@
 Auth system with:
-react,django,JWT,rest-api,djoser.
+react, django, JWT, rest-api, djoser, sqlite3.
