@@ -63,7 +63,7 @@ const Home = (props) => (
               Zaloguj się do Twojego super konta!
             </Typography>
             <Grid item sx={{marginTop:5}}>
-				<Link href='http://localhost:3000/signup'>Załóż konto!</Link>
+				<Link href='http://localhost:8000/signup'>Załóż konto!</Link>
 			</Grid>
 			<Copyright sx={{ mt: 5 }} />
           </Box>
