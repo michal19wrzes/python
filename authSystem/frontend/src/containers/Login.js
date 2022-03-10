@@ -13,6 +13,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { connect } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { login } from '../actions/auth';
 
 function Copyright(props) {
@@ -43,8 +44,12 @@ const Login = ({login,isAuthenticated}) => {
 		e.preventDefault();
 		login(email,password);
 	};
+	
+	if(isAuthenticated){
+		return <Navigate to='/another' />
+	}
   
-  
+	
 //const Login = ({login},props) => (
 	return (
 	<ThemeProvider theme={theme}>
