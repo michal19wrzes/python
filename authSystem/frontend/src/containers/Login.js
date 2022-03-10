@@ -29,9 +29,7 @@ function Copyright(props) {
 }
 
 const theme = createTheme();
-
-
-
+ 
 const Login = ({login,isAuthenticated}) => {
 	const [formData,setFormData] = useState({
 		email: '',
@@ -39,13 +37,10 @@ const Login = ({login,isAuthenticated}) => {
 	});
 	const {email,password} = formData;
 	
-	const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+	const handleChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 	
 	const handleSubmit = e => {
 		e.preventDefault();
-		
-		  
-		
 		login(email,password);
 	};
   
@@ -88,9 +83,9 @@ const Login = ({login,isAuthenticated}) => {
 				<Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
 				  <TextField
 					margin="normal"
-					onChange = {onChange}
 					required
 					fullWidth
+					onChange={e => handleChange(e)}
 					color = 'success'
 					id="email"
 					label="Email"
@@ -100,7 +95,7 @@ const Login = ({login,isAuthenticated}) => {
 				  />
 				  <TextField
 					margin="normal"
-					onChange = {onChange}
+					onChange={e => handleChange(e)}
 					required
 					fullWidth
 					color = 'success'

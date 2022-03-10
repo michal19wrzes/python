@@ -6,8 +6,8 @@ import {
 } from '../actions/types';
 
 const initialState = {
-	access: window.localStorage.getItem('access'),
-	refresh: window.localStorage.getItem('refresh'),
+	access: localStorage.getItem('access'),
+	refresh: localStorage.getItem('refresh'),
 	isAuthenticated: null,
 	user: null
 };
