@@ -46,7 +46,7 @@ const Login = ({login,isAuthenticated}) => {
 	};
 	
 	if(isAuthenticated){
-		return <Navigate to='/another' />
+		return <Navigate to='/' />
 	}
   
 	
@@ -130,7 +130,7 @@ const Login = ({login,isAuthenticated}) => {
 					  </Link>
 					</Grid>
 					<Grid item >
-					  <Link href="http://localhost:3000/signup" variant="body2">
+					  <Link href="http://localhost:8000/signup" variant="body2">
 						{"Nimosz konta? Durch tu wlazuj! "}
 					  </Link>
 					</Grid>

@@ -27,7 +27,7 @@ function Copyright(props) {
 }
 const theme = createTheme();
 const Home = (props) => (
-		<ThemeProvider theme={theme}>
+	<ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
@@ -60,11 +60,16 @@ const Home = (props) => (
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Zaloguj się do Twojego super konta!
+              Jesteś zalogowany!
             </Typography>
-            <Grid item sx={{marginTop:5}}>
-				<Link href='http://localhost:3000/signup'>Załóż konto!</Link>
-			</Grid>
+			<Button
+				type="submit"
+				fullWidth
+				color="success"
+				variant="contained"
+				sx={{ mt: 3, mb: 2 }}
+			>Wyloguj</Button>
+            
 			<Copyright sx={{ mt: 5 }} />
           </Box>
         </Grid>
