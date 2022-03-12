@@ -5,7 +5,7 @@ import {
 	LOAD_USER_FAIL,
 	AUTHENTICATED_SUCCESS,
 	AUTHENTICATED_FAIL,
-	LOGOUT,
+	LOGOUT
 } from '../actions/types';
 
 const initialState = {
@@ -25,7 +25,7 @@ export default function(state= initialState,action){
 				...state,
 				isAuthenticated: true,
 				access: payload.access,
-				refresh: payload.refresh,
+				refresh: payload.refresh
 			}
 		case LOGIN_FAIL:
 		case LOGOUT:
@@ -36,7 +36,7 @@ export default function(state= initialState,action){
 				isAuthenticated: false,
 				access: null,
 				refresh: null,
-				user: null,
+				user: null
 			}
 		case AUTHENTICATED_SUCCESS:
 			return {

@@ -2,12 +2,18 @@ import axios from 'axios';
 import {
 	LOGIN_SUCCESS,
 	LOGIN_FAIL,
-	LOAD_USER_SUCCESS,
 	AUTHENTICATED_FAIL,
 	AUTHENTICATED_SUCCESS,
 	LOGOUT,
+	LOAD_USER_SUCCESS,
 	LOAD_USER_FAIL
-} from '../actions/types';
+} from './types';
+
+export const logout = () => dispatch => {
+    dispatch({
+        type: LOGOUT
+    });
+};
 
 export const checkAuthenticated = () => async dispatch => {
 	if(localStorage.getItem('access')){

@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { render } from "react-dom";
 import Home from './containers/Home';
 import Signup from './containers/Signup';
 import ResetPassword from './containers/ResetPassword';
 import ResetPasswordConfirm from './containers/ResetPasswordConfirm';
 import Login from './containers/Login';
 import Activate from './containers/Activate';
-import Navbar from './containers/Navbar';
 import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 
 import { Provider } from 'react-redux';
