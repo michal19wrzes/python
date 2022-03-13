@@ -49,7 +49,7 @@ const ResetPassword = ({reset_password}) => {
 	}
   
 	
-//const Login = ({login},props) => (
+
 	return (
 	<ThemeProvider theme={theme}>
 		  <Grid container component="main" sx={{ height: '100vh' }}>
@@ -116,6 +116,4 @@ const ResetPassword = ({reset_password}) => {
 	);
 };
 
-
-//export default Login;
 export default connect(null,{ reset_password })(ResetPassword);
