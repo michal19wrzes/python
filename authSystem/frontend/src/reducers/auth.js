@@ -3,6 +3,8 @@ import {
 	LOGIN_FAIL,
 	LOAD_USER_SUCCESS,
 	LOAD_USER_FAIL,
+	RESET_PASSWORD_SUCCESS,
+	RESET_PASSWORD_FAIL,
 	AUTHENTICATED_SUCCESS,
 	AUTHENTICATED_FAIL,
 	LOGOUT
@@ -57,6 +59,11 @@ export default function(state= initialState,action){
 			return {
 				...state,
 				user: null
+			}
+		case RESET_PASSWORD_SUCCESS:
+		case RESET_PASSWORD_FAIL:
+			return {
+				...state
 			}
 		default:
 			return state

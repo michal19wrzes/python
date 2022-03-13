@@ -125,12 +125,12 @@ const Login = ({login,isAuthenticated}) => {
 				  </Button>
 				  <Grid container>
 					<Grid item xs>
-					  <Link href="#" variant="body2">
+					  <Link href="/reset-password" variant="body2">
 						Nipamiętom hasła
 					  </Link>
 					</Grid>
 					<Grid item >
-					  <Link href="http://localhost:8000/signup" variant="body2">
+					  <Link href="/signup" variant="body2">
 						{"Nimosz konta? Durch tu wlazuj! "}
 					  </Link>
 					</Grid>
