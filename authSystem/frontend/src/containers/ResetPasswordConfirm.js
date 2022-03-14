@@ -11,7 +11,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { connect } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { reset_password_confirm } from '../actions/auth';
 
 function Copyright(props) {
@@ -29,9 +29,13 @@ function Copyright(props) {
 
 const theme = createTheme();
  
-const ResetPasswordConfirm = ({match, reset_password_confirm}) => {
+const ResetPasswordConfirm = ({ reset_password_confirm}) => {
+	
+	const {uid,token} = useParams();
 	
 	const [requestSent, setRequestSent] = useState(false);
+	
+	//const {uid,token} = useParams();
 	
 	const [formData,setFormData] = useState({
 		new_password: '',
@@ -43,8 +47,7 @@ const ResetPasswordConfirm = ({match, reset_password_confirm}) => {
 	
 	const handleSubmit = e => {
 		e.preventDefault();
-		const uid = match.params.uid;
-		const token = match.params.token;
+		
 		
 		reset_password_confirm(uid, token, new_password, re_new_password);
 		setRequestSent(true);
