@@ -8,6 +8,8 @@ import {
 	LOGOUT,
 	RESET_PASSWORD_SUCCESS,
 	RESET_PASSWORD_FAIL,
+	USER_CREATE_SUCCESS,
+	USER_CREATE_FAIL,
 	RESET_PASSWORD_CONFIRM_FAIL,
 	RESET_PASSWORD_CONFIRM_SUCCESS
 } from '../actions/types';
@@ -62,6 +64,8 @@ export default function(state= initialState,action){
 				...state,
 				user: null
 			}
+		case USER_CREATE_FAIL:
+		case USER_CREATE_SUCCESS:
 		case RESET_PASSWORD_SUCCESS:
 		case RESET_PASSWORD_FAIL:
 		case RESET_PASSWORD_CONFIRM_SUCCESS:
