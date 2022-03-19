@@ -11,10 +11,31 @@ import {
 	RESET_PASSWORD_FAIL,
 	USER_CREATE_SUCCESS,
 	USER_CREATE_FAIL,
+	ACTIVATE_SUCCESS,
+	ACTIVATE_FAIL,
 	RESET_PASSWORD_CONFIRM_SUCCESS,
 	RESET_PASSWORD_CONFIRM_FAIL
 } from './types';
 
+export const activate_account = (uid, token) => async dispatch => {
+	const config = {
+		headers: {
+			'Content-Type':'application/json'
+		}
+	};
+	const body = JSON.stringify({uid,token});
+	
+	try {
+		await axios.post(`${process.env.REACT_APP_API_URL}/auth/users/activation/`,body,config);
+		dispatch({
+			type: ACTIVATE_SUCCESS
+		});
+	} catch {
+		dispatch({
+			type: ACTIVATE_FAIL
+		});
+	}
+};
 
 export const reset_password_confirm = (uid, token, new_password, re_new_password ) => async dispatch => {
 	const config = {
@@ -22,7 +43,6 @@ export const reset_password_confirm = (uid, token, new_password, re_new_password
 			'Content-Type':'application/json'
 		}
 	};
-	console.log(uid,token);
 	const body = JSON.stringify({uid, token, new_password, re_new_password});
 	
 	try {
