@@ -11,7 +11,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { connect } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { activate_account } from '../actions/auth';
 
 function Copyright(props) {
@@ -31,10 +31,8 @@ const theme = createTheme();
  
 const Activate = ({activate_account}) => {
 	const [verified, setVerified] = useState(false);
-	
+	const {uid,token} = useParams();
 	const handleSubmit = e => {
-		const uid = match.params.uid;
-		const token = match.params.token;
 		activate_account(uid,token);
 		setVerified(true);
 	};
