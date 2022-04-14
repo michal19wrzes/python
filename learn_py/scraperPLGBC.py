@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import pandas as pd
-from xlsxwriter import Workbook
+from xlsxwriter import Workbook 
 
 
 dfItems = [] #list of dict to pandas
