@@ -1,3 +1,3 @@
-This is experience polygon with django,rest-api,react and others..
+There are experience projects with django,rest-api,react and others..
 
-https://nodejs.org/en/download/current/
+
