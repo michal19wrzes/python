@@ -6,19 +6,17 @@ from datetime import datetime
 def home(request):
     n = datetime.now()
     
+    kucharz_potrawa = Kucharz.objects.prefetch_related('potrawa_set').all()
     
-    def testDecorator(func):
-        def wrapper():
-            print('before')
-            func()
-            print('after')
-        return wrapper
-        
-    @testDecorator
-    def testDef():
-        print('testDef')
+    potrawa_kucharz = Potrawa.objects.select_related('powi').all()
 
-    testDef()
+    for kucharz in kucharz_potrawa:
+        # print(kucharz.__dict__)
+        potrawy = kucharz.potrawa_set.all()
+        print(str([(potrawa.smak) for potrawa in potrawy]))
+
+    # for potrawa in potrawy:
+    #     print(potrawa.powi.age)
 
     p = datetime.now() - n
     print(p)
