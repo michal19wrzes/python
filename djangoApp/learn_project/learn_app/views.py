@@ -1,24 +1,32 @@
+from re import S
+from tabnanny import check
 from django.shortcuts import render
 from learn_app.models import Potrawa,Kucharz
 from datetime import datetime
 
-# Create your views here.
+
 def home(request):
-    n = datetime.now()
     
-    kucharz_potrawa = Kucharz.objects.prefetch_related('potrawa_set').all()
+    def checkTime(func):
+        def wrapper():
+            print('e')
+            func(2)
+            print('el')
+        return wrapper
     
-    potrawa_kucharz = Potrawa.objects.select_related('powi').all()
-
-    for kucharz in kucharz_potrawa:
-        # print(kucharz.__dict__)
-        potrawy = kucharz.potrawa_set.all()
-        print(str([(potrawa.smak) for potrawa in potrawy]))
-
-    # for potrawa in potrawy:
-    #     print(potrawa.powi.age)
-
-    p = datetime.now() - n
-    print(p)
+    @checkTime
+    def something(b):
+        if b <1:
+            return 0
+        if b <2:
+            return 1
+        else:
+            return print('works')
+            
+            
+        
+    something()
+    
+    
 
     return render(request,'learn_app/index.html')
