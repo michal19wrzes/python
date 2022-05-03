@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'learn_app',
-    'factory_boy',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',

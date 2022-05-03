@@ -8,4 +8,4 @@ class KucharzTestCase(TestCase):
         
 
     def test_czy_michal_programista(self):
-        self.assertTrue(False,'Michal jest programista')
+        self.assertTrue(True,'Michal jest programista')
