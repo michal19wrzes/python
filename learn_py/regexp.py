@@ -26,15 +26,25 @@ ser agas?
 Where can I get some?
 There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
 """
-
 #pattern = re.compile(r"\d+")    digits on one or more position
 #pattern = re.compile(r"[a-zA-Z0-9._-]+@([a-z]+)\.(pl|com|xd)")  emails
 #pattern = re.compile(r"\d{4}\-\d{2,3}\-\d*") # numbers splited by -
-pattern = re.compile(r"\w+ ?\w+ ?\w+\?")
-matches = pattern.finditer(text)
+text2 = "11111111"
+def isPrime(n):
+	return re.match(r'^1?$|^(11+?)\1+$', '1' * n) == None #11111111111111111111111111
+
+pattern = re.compile(r'^1?$|^(11+?)\1+$')
+matches = pattern.finditer(text2)
 for match in matches:
     print(match.group(0)) # (  ) in pattern allows access to specific group 0,1,2
  
+
+# print(isPrime(13))
+# print(isPrime(49))
+# print(isPrime(0))
+# print(isPrime(1))
+# print(isPrime(2))
+# print(isPrime(3))
 # .       - Any Character Except New Line
 # \d      - Digit (0-9)
 # \D      - Not a Digit (0-9)
