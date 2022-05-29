@@ -1,5 +1,7 @@
 import math
 
+#Problem: https://pl.spoj.com/problems/TRNGLFLD/
+
 #print 1 2 6 3 4 5  for exampleList:[1,6,2,5,3,4] --> sort after 3 numbers
 def splitList(l):
   x = len(l)//3
