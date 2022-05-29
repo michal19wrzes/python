@@ -1,6 +1,6 @@
 import math
 
-#print 3 sorted elements for divided len via 3 list
+#print 1 2 6 3 4 5  for exampleList:[1,6,2,5,3,4] --> sort after 3 numbers
 def splitList(l):
   x = len(l)//3
   for i in range(x):
@@ -11,15 +11,17 @@ def splitList(l):
     temp.sort()
     print(f"{temp[0]} {temp[1]} {temp[2]}")
 
+#input test case. for. ex. 1
 t = int(input())
+inData=[] # input Data
+maxDists=[]   # maximal distances between two points
+outData={} # output data
 for test in range(t):
-  cov = int(input())
-  inData=[]
-  dist=[]
-  outData={}
-  
+  cov = int(input()) # cov - count of vertices
   for v in range(cov):
-    inData.append(input().split())
+    inData.append(input().split()) # inputData for. Ex. 0 0 \n 1 2 \n 2 1
+
+  #calc maxDistance from vertex1 to vertex2 for vertices
   for data in inData:
     maxDist=0
     for lata in inData: #
@@ -27,11 +29,16 @@ for test in range(t):
       r2 = int(lata[0])-int(data[0])
       d = math.sqrt(r1*r1+r2*r2) #distance from p to p
 
-      if d>maxDist:
+      if d>maxDist: #looking for a greatest distance
         maxDist=d
-    dist.append(maxDist)    
+    maxDists.append(maxDist)    
 
+#create dict with index and maxDistances before sorting
   for i in range(len(inData)):
-    outData[str(i+1)]=dist[i]
+    outData[str(i+1)]=maxDists[i]
+
+  #sorting dict by value
   outData = {k:v for k,v in sorted(outData.items(),key=lambda x: x[1], reverse=True)}
+
+  #print 1 2 6 3 4 5  for exampleList:[1,6,2,5,3,4] --> sort after 3 numbers
   splitList(list(outData.keys()))
