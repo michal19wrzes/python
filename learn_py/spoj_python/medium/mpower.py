@@ -1,4 +1,3 @@
-
 #Problem: https://pl.spoj.com/problems/MPOWER/
 
 #fast exponentiation modulo
