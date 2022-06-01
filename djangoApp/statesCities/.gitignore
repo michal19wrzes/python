@@ -1,0 +1,4 @@
+build/
+venv/
+*.sqlite3
+__pycache__/
