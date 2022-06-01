@@ -2,3 +2,4 @@ build/
 venv/
 *.sqlite3
 __pycache__/
+*.ini
