@@ -28,5 +28,6 @@ for i in range(1,count_of_elephants):
             x = director_permutation[x-1]
             min_of_cycle = min(min_of_cycle,masses_of_elephants[x-1])
             length_of_cycle += 1
-        score += min(weights_of_elephtants + (length_of_cycle - 2) * min_of_cycle, weights_of_elephtants + min_of_cycle + (length_of_cycle + 1) * min_weight)
+        score += min(weights_of_elephtants + (length_of_cycle - 2) * min_of_cycle,
+                     weights_of_elephtants + min_of_cycle + (length_of_cycle + 1) * min_weight)
 print(score, end='')
