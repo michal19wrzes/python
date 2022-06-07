@@ -1,3 +1,4 @@
+#https://www.oi.edu.pl/old/html/zadania/oi16/slo.pdf
 import numpy as np
 import fileinput
 from numpy import int64
