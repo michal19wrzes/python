@@ -4,7 +4,14 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from .forms import SignUpForm
 from django.contrib.auth.decorators import login_required
+from .models import UserAccount
+from .serializers import UserSerializer
+from rest_framework import viewsets
 # Create your views here.
+
+class UserAccountViewSet(viewsets.ModelViewSet):
+    queryset = UserAccount.objects.all()
+    serializer_class = UserSerializer
 
 @login_required
 def home(request):
