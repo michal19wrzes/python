@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 
 
 
@@ -10,7 +10,11 @@ export default class App extends Component {
 	
 	render(){
 		return (
-			<h1>To Dziala sX</h1>
+			<Router>
+				<Routes>
+					<Route exact path='/login' element={<h1>TO JEST LOGIN</h1>} />
+				</Routes>
+			</Router>
 		);
 	}
 }
