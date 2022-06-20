@@ -38,3 +38,43 @@ for test in range(t):
             print(f"{ind1+1} {ind2+1}")
         else:
             print(f"{ind2+1} {ind1+1}")
+#NZEC FAIL:
+t = int(input())
+for test in range(t):
+    n = int(input())
+    lista1 = [7,1,4,12,6,3,9,12,13,24,25,13,2,5,6,7,26,47,57,68,79,80,90,95,94]
+    lista2 = [x for x in sorted(lista1)]
+    wyn = []
+    suma=0
+    for i in range(n-1):
+        if i==0:
+            min1,min2 = lista2[i],lista2[i+1]
+            ind1 = lista1.index(min1)
+            lastInd = ind1
+            ind2 = lista1.index(min2)
+            lista2[i] = min1+min2
+            last = lista2[i]
+            suma+= last
+            lista2[i+1]=float('inf')
+            wyn.append([ind1,ind2])
+        elif last<lista2[i+1]:
+            min1,min2 = last,lista2[i+1]
+            ind1 = lastInd
+            ind2 = lista1.index(min2)
+            lista2[lastInd] = min1 + min2
+            last = lista2[lastInd]
+            lista2[i+1] = float('inf')
+            suma += last
+            wyn.append([ind1,ind2])
+        else:
+            min1,min2 = lista2[i+1],last
+            ind1 = lista1.index(min1)
+            ind2 = lastInd
+            lista2[i+1] = min1+min2
+            last = lista2[i+1]
+            lista2[lastInd] = float('inf')
+            suma+=last
+            wyn.append([ind1,ind2])
+    print(suma)
+    for w in wyn:
+        print(f"{w[0]+1} {w[1]+1}")
